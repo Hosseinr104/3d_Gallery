@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="theme-color" content="#122b2b">
+  <title>نگارخانه مهر | موزه هنرهای ایرانی</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.babylonjs.com/babylon.js"></script>
+</head>
+<body>
+  <canvas id="renderCanvas" aria-label="فضای سه‌بعدی نگارخانه"></canvas>
+
+  <div id="loading">
+    <div class="seal">م</div>
+    <b>نگارخانه مهر</b>
+    <span>در حال آماده‌سازی موزه...</span>
+  </div>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-seal">م</div>
+      <div><b>نگارخانه مهر</b><small>مجموعه هنرهای ایرانی</small></div>
+    </div>
+    <div class="actions">
+      <button id="guideBtn">راهنما</button>
+      <button id="resetBtn">نمای آغازین</button>
+    </div>
+  </header>
+
+  <div class="room-label"><i></i><span id="locationName">تالار ورودی</span></div>
+
+  <section id="welcome" class="glass welcome">
+    <div class="eyebrow">موزه سه‌بعدی هنر و خلاقیت</div>
+    <h1>به نگارخانه مهر خوش آمدید</h1>
+    <p>از تالار ورودی وارد چهار بخش موزه شوید؛ آثار را ببینید، صنایع‌دستی را از نزدیک تماشا کنید و به آثار آوایی گوش دهید.</p>
+    <div class="section-chips">
+      <span>نقاشی</span><span>عکاسی</span><span>هنرهای دستی</span><span>هنرهای آوایی</span>
+    </div>
+    <div class="control-notes">
+      <div><b>راه رفتن</b><span>W A S D یا کلیدهای جهت‌نما</span></div>
+      <div><b>چرخش دید</b><span>کلیک چپ را نگه دارید و ماوس را بکشید؛ نشانگر مخفی نمی‌شود.</span></div>
+      <div><b>تعامل</b><span>روی تابلو، شیء یا سازه آوایی کلیک کنید.</span></div>
+    </div>
+    <button id="enterBtn" class="primary">ورود به نگارخانه <span>←</span></button>
+  </section>
+
+  <section id="guide" class="glass guide hidden">
+    <button class="xbtn" data-close="guide">×</button>
+    <h2>راهنمای بازدید</h2>
+    <p><b>راه رفتن:</b> با W، A، S، D یا کلیدهای جهت‌نما حرکت کنید.</p>
+    <p><b>چرخش دید:</b> کلیک چپ ماوس را نگه دارید و آن را بکشید. نشانگر همیشه قابل مشاهده می‌ماند.</p>
+    <p><b>ورود به بخش‌ها:</b> از تالار ورودی وارد یکی از چهار درگاه شوید. نام هر بخش بالای ورودی نوشته شده است.</p>
+    <p><b>صنایع‌دستی:</b> روی نمونه‌های روی میز کلیک کنید تا اطلاعاتشان را ببینید.</p>
+    <p><b>هنرهای آوایی:</b> روی هر سازه کلیک کنید تا قطعه کوتاه موسیقی اصلی آن پخش شود. برای قطع صدا از دکمه توقف استفاده کنید.</p>
+    <p><b>اندروید:</b> جوی‌استیک پایین سمت چپ برای حرکت و کشیدن انگشت روی سمت راست تصویر برای چرخش است.</p>
+  </section>
+
+  <div id="joystick" aria-label="کنترل حرکت"><div id="stick"></div></div>
+  <div class="touch-hint">برای چرخش، صفحه را بکشید</div>
+  <div class="hud"><span>W A S D</span><span>حرکت در موزه</span><span id="fps">-- FPS</span></div>
+
+  <section id="artModal" class="modal hidden">
+    <div class="art-card">
+      <button id="artClose" class="xbtn">×</button>
+      <div id="artImage" class="art-image"></div>
+      <div class="art-info">
+        <div class="eyebrow" id="artSection">اثر به نمایش درآمده</div>
+        <h2 id="artTitle"></h2>
+        <p id="artDescription"></p>
+        <div class="meta"><span id="artArtist"></span><span id="artMedium"></span></div>
+        <div id="audioControls" class="audio-controls hidden">
+          <button id="playAudio" class="primary audio-button">پخش قطعه</button>
+          <button id="stopAudio" class="stop-button">توقف صدا</button>
+          <small id="audioStatus">قطعه موسیقی با انتخاب اثر پخش می‌شود.</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="app.js"></script>
+</body>
+</html>
